@@ -28,3 +28,117 @@ body {
     vertical-align: middle;
   }
 }
+
+/* ── Keyframes ─────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes progressFill {
+  from { width: 0%; }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+
+/* ── Animation classes ─────────────────────────────────── */
+.anim-fade-in-up   { animation: fadeInUp  0.6s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-fade-in-down { animation: fadeInDown 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-fade-in      { animation: fadeIn  0.5s ease-out both; }
+.anim-scale-in     { animation: scaleIn 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-slide-left   { animation: slideInLeft  0.6s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-slide-right  { animation: slideInRight 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+
+/* Stagger delays (apply alongside anim-* class) */
+.delay-0   { animation-delay: 0ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+
+/* ── Scroll-reveal (hidden until JS adds .revealed) ────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1),
+              transform 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Card hover lift ───────────────────────────────────── */
+.card-hover {
+  transition: transform 0.25s cubic-bezier(0.22,1,0.36,1),
+              box-shadow 0.25s ease;
+  cursor: pointer;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 24px 48px -8px rgba(0,0,0,0.14);
+}
+
+/* ── Image zoom on hover ───────────────────────────────── */
+.img-zoom { overflow: hidden; }
+.img-zoom img {
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.img-zoom:hover img { transform: scale(1.07); }
+
+/* ── Button press ──────────────────────────────────────── */
+.btn-press {
+  transition: transform 0.15s ease, opacity 0.15s ease,
+              box-shadow 0.15s ease;
+}
+.btn-press:hover  { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+.btn-press:active { transform: scale(0.97); opacity: 0.9; }
+
+/* ── Animated progress bar ─────────────────────────────── */
+.progress-bar {
+  animation: progressFill 1.2s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* ── Skeleton shimmer ──────────────────────────────────── */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+}

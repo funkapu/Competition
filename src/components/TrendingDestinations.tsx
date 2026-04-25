@@ -41,13 +41,10 @@ export default function TrendingDestinations() {
   return (
     <section
       className="flex flex-col items-start gap-8"
-      style={{
-        padding: "48px 40px",
-        height: "624px",
-      }}
+      style={{ padding: "48px 16px" }}
     >
       {/* Header Row */}
-      <div className="flex flex-row justify-between items-end w-full">
+      <div className="reveal flex flex-row justify-between items-end w-full">
         {/* Left: Title + Subtitle */}
         <div className="flex flex-col items-start">
           <h2
@@ -90,18 +87,18 @@ export default function TrendingDestinations() {
       </div>
 
       {/* Cards */}
-      <div className="flex flex-row gap-6 w-full" style={{ height: "436px" }}>
-        {destinations.map((dest) => (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full">
+        {destinations.map((dest, i) => (
           <div
             key={dest.id}
-            className="flex flex-col flex-1"
-            style={{ height: "436px" }}
+            className="reveal card-hover flex flex-col"
+            style={{ transitionDelay: `${i * 100}ms` }}
           >
             {/* Image Container */}
             <div
-              className="relative flex-shrink-0"
+              className="img-zoom relative flex-shrink-0"
               style={{
-                height: "376px",
+                height: "clamp(180px, 30vw, 376px)",
                 borderRadius: "16px",
                 overflow: "hidden",
                 border: dest.selected ? "2px solid #E53E3E" : "none",

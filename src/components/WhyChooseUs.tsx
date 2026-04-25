@@ -42,26 +42,17 @@ const features = [
 export default function WhyChooseUs() {
   return (
     <section
-      className="flex flex-row gap-8"
-      style={{
-        marginLeft: "40px",
-        marginRight: "40px",
-        marginTop: "40px",
-        height: "232px",
-        position: "relative",
-      }}
+      className="flex flex-col md:flex-row gap-6 md:gap-8 mx-4 md:mx-10 mt-8 md:mt-10"
     >
       {features.map((feature, index) => (
         <div
           key={index}
-          className="flex flex-col items-center gap-3 flex-1"
+          className="reveal card-hover flex flex-col items-center gap-3 flex-1"
           style={{
             background: "#E9E9E9",
             borderRadius: "12px",
             padding: "24px",
-            height: "192px",
-            marginTop: "40px",
-            marginLeft: index !== 0 ? "0px" : "0px",
+            transitionDelay: `${index * 120}ms`,
           }}
         >
           {/* Icon circle */}
